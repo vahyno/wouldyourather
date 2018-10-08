@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../styles/login.css';
 import {connect} from 'react-redux';
+import {userLogin} from '../actions/authedUser';
 
 
 class Login extends Component {
@@ -14,7 +15,18 @@ class Login extends Component {
 
     onFromSubmit = (e) => {
         e.preventDefault();
-        console.log('button');
+        const { username } = this.state;
+        const { dispatch } = this.props;
+        console.log('button - username', username);
+        console.log(this.state.logged);
+
+        if (username !=='') {
+            dispatch(userLogin(username));
+            this.setState({
+                logged: true
+            });
+        }
+        console.log(this.state.logged)
     }
 
     handleInputChange = (e) => {
@@ -25,8 +37,9 @@ class Login extends Component {
     }
 
     render() {
-        const {users} = this.props;
+        const {users, authedUser} = this.props;
         console.log('props users:', users);
+        console.log('authedUser:', authedUser);
         return (
             <div className='login'>
                 <form className='login-form right-align row input-field col s6 m2' onSubmit={this.onFromSubmit}>
@@ -53,9 +66,10 @@ class Login extends Component {
     }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, authedUser }) {
     return {
-        users: Object.values(users)
+        users: Object.values(users),
+        authedUser
     }
 }
 
