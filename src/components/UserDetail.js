@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+// import pic from '../styles/usersImg/'
 
 class UserDetail extends Component {
 
@@ -7,9 +8,13 @@ class UserDetail extends Component {
         const {user} = this.props;
         console.log('user detail', user);
         return (
-            <div>
-                <h3>UserDetail:</h3>
-            </div>
+            <li className="collection-item avatar">
+                <img src={user.avatarURL} alt={`image of ${user.name}`} className="circle" />
+                <span className="title">{user.name}</span>
+                <p>{`Questions asked: ${user.questions.length}`}</p>
+                <p>{`Answered: ${Object.keys(user.answers).length}`}</p>
+                {/* <a href="#!" className="secondary-content"><i className="material-icons">grade</i></a> */}
+            </li>
         )
     }
 }
