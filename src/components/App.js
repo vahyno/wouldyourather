@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from 'react';
+import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import {handleInitialData} from '../actions/shared';
 import LoadingBar from 'react-redux-loading-bar';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import Login from './Login';
 import Signup from './Signup';
@@ -15,9 +15,8 @@ class App extends Component {
     this.props.dispatch(handleInitialData());
   }
   render() {
-    const { loading, isLogged } = this.props;
+    const { loading } = this.props;
     console.log('props loading',loading);
-    console.log('IsLogged',isLogged);
 
     return (
       <Router>
@@ -28,12 +27,7 @@ class App extends Component {
             : <div>
               <Route path='/login' component={Login} />
               <Route path='/signup' component={Signup} />
-              <PrivateRoute path="/" exact component={Dashboard}/>
-            {/*  {!isLogged
-                ? <Redirect to={{pathname: '/login'}} />              
-                : <div>
-                  <Route path='/' exact component={Dashboard} />
-                </div>}
+              <PrivateRoute path='/' exact component={Dashboard}/>
               {/*<Route render={()=>(<p className='center-align'>404 page does not exist</p>)} />*/} 
             </div>}
         </Fragment>
@@ -42,10 +36,9 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({users, authedUser}) {
+function mapStateToProps({users}) {
   return {
     loading: !Object.values(users).length ? true : false,
-    isLogged: Object.values(authedUser).length ? true : false, 
   }
 }
 

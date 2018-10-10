@@ -18,8 +18,8 @@ class Login extends Component {
         e.preventDefault();
         const { username } = this.state;
         const { dispatch } = this.props;
-        console.log('button - username', username);
-        console.log(this.state.logged);
+        // console.log('button - username', username);
+        // console.log(this.state.logged);
 
         if (username !=='') {
             dispatch(userLogin(username));
@@ -42,10 +42,11 @@ class Login extends Component {
         console.log('props users:', users);
         console.log('authedUser:', authedUser);
         const { logged } = this.state;
+        const { from } = this.props.location.state || { from: { pathname: '/' }};
 
         if (logged) {
             return (
-                <Redirect to='/' />
+                <Redirect to={from} />
             )
         }
 
