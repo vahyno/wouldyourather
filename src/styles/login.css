@@ -18,8 +18,8 @@
 }
 
 .login-btn {
-    margin-top: 5px;
-    width: 100%;
+    margin: 5px 2px 0 0;
+    width: 49%;
     font-weight: 700;
     font-size: 1.2em;
 }

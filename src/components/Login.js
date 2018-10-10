@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../styles/login.css';
 import {connect} from 'react-redux';
 import {userLogin} from '../actions/authedUser';
+import {Link, Redirect} from 'react-router-dom';
 
 
 class Login extends Component {
@@ -40,6 +41,14 @@ class Login extends Component {
         const {users, authedUser} = this.props;
         console.log('props users:', users);
         console.log('authedUser:', authedUser);
+        const { logged } = this.state;
+
+        if (logged) {
+            return (
+                <Redirect to='/' />
+            )
+        }
+
         return (
             <div className='login'>
                 <form className='login-form right-align row input-field col s6 m2' onSubmit={this.onFromSubmit}>
@@ -60,6 +69,11 @@ class Login extends Component {
                         name="action">
                         Log In
                     </button>
+                    <Link 
+                        className='login-btn waves-effect waves-light blue lighten-2 btn'
+                        to ={`/signup`} >
+                        Sign up
+                    </Link>
                 </form>
             </div>
         )
