@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import UserDetail from './UserDetail';
 
 class Leaderboard extends Component {
 
@@ -9,12 +10,12 @@ class Leaderboard extends Component {
         console.log('users to map', users)
         return (
             <div>
-            <h3>Leaderboard</h3>
-            <ul>
-                {this.props.users.map(userId => (
-                    <li key={userId}>{userId}</li>
-                ))}
-            </ul>
+                <h3>Leaderboard:</h3>
+                <ul>
+                    {this.props.users.map(userId => (
+                        <UserDetail key={userId} userId={userId} />
+                    ))}
+                </ul>
             </div>
         )
     }
