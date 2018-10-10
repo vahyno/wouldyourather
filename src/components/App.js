@@ -8,6 +8,8 @@ import Login from './Login';
 import Signup from './Signup';
 import Dashboard from './Dashboard';
 import PrivateRoute from './PrivateRoute';
+import Leaderboard from './Leaderboard';
+import NewQuestion from './NewQuestion';
 
 class App extends Component {
 
@@ -28,6 +30,8 @@ class App extends Component {
               <Route path='/login' component={Login} />
               <Route path='/signup' component={Signup} />
               <PrivateRoute path='/' exact component={Dashboard}/>
+              <PrivateRoute path='/leaderboard' component={Leaderboard}/>
+              <PrivateRoute path='/add' component={NewQuestion}/>
               {/*<Route render={()=>(<p className='center-align'>404 page does not exist</p>)} />*/} 
             </div>}
         </Fragment>
