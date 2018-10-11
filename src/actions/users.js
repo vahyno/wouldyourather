@@ -16,8 +16,12 @@ export function receiveUsers (users) {
 export function handleAddNewUser (username, name, avatarURL) {
     return (dispatch)=>{
         dispatch(showLoading());
-        return saveNewUser({username, name, avatarURL})
-            .then(({users}) => {
+        return saveNewUser({
+            username, 
+            name, 
+            avatarURL
+        })
+            .then((users) => {
                 dispatch(receiveUsers(users));
                 dispatch(hideLoading());
             })

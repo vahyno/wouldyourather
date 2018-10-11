@@ -226,7 +226,7 @@ export function _saveNewUser (user) {
         ...users,
         [formattedUser.id]: formattedUser
       }
-      res(formattedUser)
+      res(users)
     }, 1000)
   });
 }

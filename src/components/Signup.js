@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {handleAddNewUser} from '../actions/users';
+import '../styles/signUp.css';
 
 const defaultAvatarImg = 'https://icon2.kisspng.com/20180420/stq/kisspng-computer-icons-user-profile-login-avatar-description-5ada41a37ecc31.1344108915242530915194.jpg';
 
@@ -11,7 +12,6 @@ class Signup extends Component {
         username: '',
         name: '',
         avatarURL: defaultAvatarImg,
-        signed: false,
     }
 
     handleFormSubmit = (e) => {
@@ -20,46 +20,46 @@ class Signup extends Component {
         const {dispatch} = this.props;
 
         dispatch(handleAddNewUser(username, name, avatarURL));
-        this.setState({
-            signed: true,
-        });
         this.props.history.push('/login');
     }
 
     handleInputChange = (e) => {
-        let inputFieldName = e.target.name;
+        let inputFieldName = e.target.id;
         this.setState({
             [inputFieldName]: e.target.value
         })
+        // console.log(this.state.username);
+        // console.log(this.state.name);
     }
 
 
     handleURLChange = (e) => {
-        if (this.avatarURL === defaultAvatarImg) {
+        if (this.state.avatarURL === defaultAvatarImg) {
             this.setState({avatarURL: ''});
         } else {
             this.setState({
                 avatarURL: e.target.value
             })
         }
+        // console.log('avatar',this.state.avatarURL);
     }
 
 
     render(){
         return (
-            <div className="center row">
-                <form className="col s12" onSubmit={this.handleFormSubmit}>
+            <div>
+                <h5 className='signUp-title'>Please Sign Up:</h5>
+                <form className="signUp-form col s12" onSubmit={this.handleFormSubmit}>
                     <div className="row">
                         <div className="input-field col s6">
                             <input 
                                 id="username" 
                                 type="text"
-                                name="username"
                                 onChange={this.handleInputChange} 
                                 value={this.state.username}  
                                 className="validate" 
                                 required/>
-                            <label >Username</label>
+                            <label>Username</label>
                         </div>
                     </div>
                     <div className="row">
@@ -67,7 +67,6 @@ class Signup extends Component {
                             <input  
                                 id="name" 
                                 type="text"
-                                name="name"
                                 onChange={this.handleInputChange} 
                                 value={this.state.name}  
                                 className="validate" 
