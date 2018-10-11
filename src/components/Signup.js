@@ -89,7 +89,7 @@ class Signup extends Component {
                     </div>
                     <Link
                         to ={`/login`} 
-                        className="waves-effect waves-light blue lighten-3 btn">
+                        className="waves-effect waves-light red lighten-3 btn">
                         Cancel
                     </Link>
                     <button 
