@@ -61,7 +61,7 @@ class Login extends Component {
                         >
                         <option value='' disabled>Choose existing user</option>
                         {users.map(user => (
-                            <option key={user.id}>{user.name}</option>
+                            <option key={user.id} value={user.id}>{user.name}</option>
                         ))}
                     </select>
                     <button
@@ -83,7 +83,12 @@ class Login extends Component {
 
 function mapStateToProps({ users, authedUser }) {
     return {
-        users: Object.values(users),
+        users: Object.values(users).map((user) => {
+            return ({
+                id: user.id,
+                name: user.name
+            })
+        }),
         authedUser
     }
 }

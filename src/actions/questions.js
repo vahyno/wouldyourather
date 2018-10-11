@@ -6,6 +6,7 @@ import {
     showLoading, 
     hideLoading} 
 from 'react-redux-loading-bar';
+import {handleInitialData} from './shared';
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
 export const ADD_QUESTION = 'ADD_QUESTION';
@@ -35,8 +36,9 @@ export function handleAddQuestion (optionOneText, optionTwoText) {
             author: authedUser,
         })
             .then((question) => {
-                dispatch(addQuestion(question))
-                dispatch(hideLoading())
+                dispatch(addQuestion(question));
+                dispatch(handleInitialData());
+                dispatch(hideLoading());
             })
     }
 }

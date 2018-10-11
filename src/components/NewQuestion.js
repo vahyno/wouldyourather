@@ -12,10 +12,8 @@ class NewQuestion extends Component {
     }
     
     handleInputChange = (e) => {
-        let inputFieldName = e.target.id;
-        this.setState({
-            [inputFieldName]: e.target.value
-        });
+        const {value, id} = e.target
+        this.setState(() => ({[id]: value}))
     }
 
     handleFormSubmit = (e) => {
@@ -29,7 +27,7 @@ class NewQuestion extends Component {
             optionOneText: '', 
             optionTwoText: '',
         });
-        // this.props.history.push('/');
+        this.props.history.push('/');
     }
 
     render(){
@@ -38,7 +36,9 @@ class NewQuestion extends Component {
         return (
             <div>
                 <h5 className='newQuestion-title'>Would You Rather...</h5>
-                <form className="newQuestion-form col s12" onSubmit={this.handleFormSubmit}>
+                <form 
+                    className="newQuestion-form col s12" 
+                    onSubmit={this.handleFormSubmit}>
                     <div className="row">
                         <div className="input-field col s6">
                             <input 

@@ -16,7 +16,7 @@ class NavBar extends Component {
         return (
             <nav>
                 <div className="nav-wrapper blue lighten-2">
-                <h3 style={{'marginLeft':'0.5em'}} className="brand-logo">{authedUser}, Would You Rather?</h3>
+                <h3 style={{'marginLeft':'0.5em'}} className="brand-logo">{users[authedUser].name}, Would You Rather?</h3>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                     <li><Link to={'/'}>Dashboard</Link></li>
                     <li><Link to={'/leaderboard'}>Leaderboard</Link></li>
