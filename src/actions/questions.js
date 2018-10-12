@@ -1,6 +1,5 @@
 import {
     saveQuestion,
-    // saveQuestionAnswer,
 } from '../utils/api';
 import {
     showLoading, 
@@ -42,4 +41,3 @@ export function handleAddQuestion (optionOneText, optionTwoText) {
             })
     }
 }
-

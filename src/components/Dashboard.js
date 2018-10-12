@@ -27,8 +27,8 @@ class Dashboard extends Component {
                 <nav>
                     <div className="nav-wrapper">
                     <ul className="left hide-on-med-and-down">
-                        <li className={active===answ ? "active" : null}><a onClick={()=> this.toggleState(answ)} href="#">Answered polls</a></li>
-                        <li className={active===unAnsw ? "active" : null}><a onClick={()=> this.toggleState(unAnsw)} href="#">Unanswered polls</a></li>
+                        <li className={active===answ ? "active" : null}><Link to={'/'} onClick={()=> this.toggleState(answ)}>Answered polls</Link></li>
+                        <li className={active===unAnsw ? "active" : null}><Link to={'/'} onClick={()=> this.toggleState(unAnsw)}>Unanswered polls</Link></li>
                     </ul>
                     </div>
                 </nav>
