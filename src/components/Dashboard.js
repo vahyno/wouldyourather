@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+import '../styles/dashboard.css';
 
 const unAnsw = 'unAansw';
 const answ = 'answ';
@@ -19,7 +21,7 @@ class Dashboard extends Component {
     render() {
         const {active} = this.state
         const {answeredQsSorted, unAnsweredQsSorted} = this.props;
-        console.log('answeredQ', answeredQsSorted, 'unAnsweredQ', unAnsweredQsSorted);
+        // console.log('answeredQ', answeredQsSorted, 'unAnsweredQ', unAnsweredQsSorted);
         return (
             <div>
                 <nav>
@@ -31,25 +33,32 @@ class Dashboard extends Component {
                     </div>
                 </nav>
 
-
-
                 { this.state.active === answ &&
-                    <div>
-                        <p>Answered Questions:</p>
-                        <ul>
+                    <div className='dash-list'>
+                        <ul className='collection with-header'>
+                            <li className="center collection-header"><h4>Answered Questions:</h4></li>
                             {answeredQsSorted.map(Q => (
-                                <li key={Q.id}>{Q.id}</li>
+                                <li className='dash-btn btn-large waves-effect waves-light collection-item' 
+                                    key={Q.id}>
+                                    <Link to={`/questions/${Q.id}`}>
+                                        {Q.optionOne.text} - or - {Q.optionTwo.text}
+                                    </Link>
+                                </li>
                             ))}
                         </ul>
                     </div>
                 }
 
                 { this.state.active === unAnsw &&
-                    <div>
-                        <p>Unanswered Questions:</p>
-                        <ul>
+                    <div className='dash-list'>
+                        <ul className='collection with-header'>
+                            <li className='center collection-header'><h4>Unanswered Questions:</h4></li>
                             {unAnsweredQsSorted.map(Q => (
-                                <li key={Q.id}>{Q.id}
+                                <li className='dash-btn btn-large waves-effect waves-light collection-item' 
+                                    key={Q.id}>
+                                    <Link to={`/questions/${Q.id}`} className=''>
+                                        {Q.optionOne.text} - or - {Q.optionTwo.text}
+                                    </Link>
                                 </li>
                             ))}
                         </ul>

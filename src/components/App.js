@@ -10,6 +10,7 @@ import Dashboard from './Dashboard';
 import PrivateRoute from './PrivateRoute';
 import Leaderboard from './Leaderboard';
 import NewQuestion from './NewQuestion';
+import QuestionInfo from './QuestionInfo';
 
 class App extends Component {
 
@@ -32,6 +33,7 @@ class App extends Component {
               <PrivateRoute path='/' exact component={Dashboard}/>
               <PrivateRoute path='/leaderboard' component={Leaderboard}/>
               <PrivateRoute path='/add' component={NewQuestion}/>
+              <PrivateRoute path='/questions/:question_id' component={QuestionInfo}/>
               {/*<Route render={()=>(<p className='center-align'>404 page does not exist</p>)} />*/} 
             </div>}
         </Fragment>
