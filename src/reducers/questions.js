@@ -21,9 +21,9 @@ export default function questions (state = {}, action) {
                 ...state,
                 [action.qid]: {
                     ...state[action.qid],
-                    [action.optionText]: {
-                        ...state[action.qid][action.optionText],
-                        votes: state[action.qid][action.optionText].votes.concat([action.authedUser])
+                    [action.option]: {
+                        ...state[action.qid][action.option],
+                        votes: state[action.qid][action.option].votes.concat([action.authedUser])
                     }
                 }
             }        
@@ -32,7 +32,7 @@ export default function questions (state = {}, action) {
     }
 }
 
-//authedUser, qid, optionText
+//authedUser, qid, option
 
 /*let questions = {
     "8xf0y6ziyjabvozdd253nd": {

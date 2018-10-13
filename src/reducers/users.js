@@ -17,7 +17,7 @@ export default function users (state = {}, action) {
                     ...state[action.authedUser],
                     answers: {
                         ...state[action.authedUser].answers,
-                        [action.qid]: action.optionText
+                        [action.qid]: action.option
                     }
                 }
             }
@@ -27,7 +27,7 @@ export default function users (state = {}, action) {
 }
 
 /*
-//auth, qid, optionText
+//auth, qid, option
 let users = {
     sarahedo: {
       id: 'sarahedo',

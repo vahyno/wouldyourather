@@ -4,13 +4,28 @@ import UserDetail from './UserDetail';
 import '../styles/questionInfo.css';
 import {handleQuestionAnswer} from '../actions/shared';
 
+//handleQuestionAnswer (authedUser, qid, option)
+
+
 class QuestionInfo extends Component {
+
+    
+    testVote = (e) => {
+        e.preventDefault();
+        const {dispatch, authedUser, question} = this.props;
+        let qid = question.id;
+        let option = 'optionOne';
+        dispatch(handleQuestionAnswer(authedUser, qid, option));
+    }
+
+
     render(){
         const {question, users, authedUser} = this.props;
         console.log(
             'question:', question,
             'users:', users, 
             'authedUser:', authedUser);
+
 
         return (
             <div>
@@ -22,6 +37,7 @@ class QuestionInfo extends Component {
                                 <UserDetail userId={question.author} />
                             </ul>
                         </div>
+                        <button onClick={this.testVote}>Test</button>
 
                     </div>
                 }
@@ -44,20 +60,19 @@ function mapStateToProps ({questions, users, authedUser}, props ) {
 export default connect(mapStateToProps)(QuestionInfo);
 
 /*let questions = {
-    "8xf0y6ziyjabvozdd253nd": {
-      id: '8xf0y6ziyjabvozdd253nd',
-      author: 'sarahedo',
-      timestamp: 1467166872634,
-      optionOne: {
-        votes: ['sarahedo'],
-        text: 'have horrible short term memory',
-      },
-      optionTwo: {
-        votes: [],
-        text: 'have horrible long term memory'
-      }
-    },
- */
+    "am8ehyc8byjqgar0jgpub9": {
+        id: 'am8ehyc8byjqgar0jgpub9',
+        author: 'sarahedo',
+        timestamp: 1488579767190,
+        optionOne: {
+            votes: [],
+            text: 'be telekinetic',
+        },
+        optionTwo: {
+            votes: ['sarahedo'],
+            text: 'be telepathic'
+        }
+    } */
 
 /*
 The details of the poll are available at questions/:question_id.

@@ -25,12 +25,12 @@ export function addQuestion (question) {
     }
 }
 
-export function questionsQuestionAnswer (authedUser, qid, optionText) {
+export function questionsQuestionAnswer (authedUser, qid, option) {
     return {
         type: QUESTION_ANSWER,
         authedUser,
         qid,
-        optionText
+        option
     }
 }
 

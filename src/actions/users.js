@@ -14,12 +14,12 @@ export function receiveUsers (users) {
     }
 }
 
-export function usersQuestionAnswer (authedUser, qid, optionText) {
+export function usersQuestionAnswer (authedUser, qid, option) {
     return {
         type: USER_QUESTION_ANSWER,
         authedUser,
         qid,
-        optionText
+        option
     }
 }
 
