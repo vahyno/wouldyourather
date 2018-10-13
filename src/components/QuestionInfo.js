@@ -4,20 +4,16 @@ import UserDetail from './UserDetail';
 import '../styles/questionInfo.css';
 import {handleQuestionAnswer} from '../actions/shared';
 
-//handleQuestionAnswer (authedUser, qid, option)
-
 
 class QuestionInfo extends Component {
 
-    
-    testVote = (e) => {
+    handleVote = (e, option) => {
         e.preventDefault();
         const {dispatch, authedUser, question} = this.props;
-        let qid = question.id;
-        let option = 'optionOne';
+        const qid = question.id;
         dispatch(handleQuestionAnswer(authedUser, qid, option));
+        console.log(option);
     }
-
 
     render(){
         const {question, users, authedUser} = this.props;
@@ -26,19 +22,31 @@ class QuestionInfo extends Component {
             'users:', users, 
             'authedUser:', authedUser);
 
-
         return (
             <div>
                 {!question ? <h1 className='center questionInfo-title'>error 404, poll does not exist</h1> : 
                     <div>
-                        <h5 className='questionInfo-title'>Would You Rather</h5>
-                        <div className='questionInfo-list'>
+                        <h5 className='questionInfo-author-title'>Would You Rather</h5>
+                        <div className='questionInfo-author-list'>
                             <ul className='collection'>
                                 <UserDetail userId={question.author} />
                             </ul>
-                        </div>
-                        <button onClick={this.testVote}>Test</button>
 
+                                {/*no answer to question*/}
+                                <ul className='collection'>
+                                    <li className='questionInfo-question-list left btn-large waves-effect waves collection-item'
+                                        onClick={(e) => this.handleVote(e, 'optionOne')}
+                                        >
+                                        {question.optionOne.text}
+                                    </li>
+                                    <li className='questionInfo-question-list btn-large waves-effect waves collection-item'
+                                        onClick={(e) => this.handleVote(e, 'optionTwo')}
+                                        >
+                                        {question.optionTwo.text}
+                                    </li>
+                                </ul>
+                            
+                        </div>
                     </div>
                 }
             </div>

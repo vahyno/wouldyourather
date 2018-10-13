@@ -1,11 +1,16 @@
-.questionInfo-list {
+.questionInfo-author-list {
     margin: 3em 25% 0 25%;
 }
 
-.questionInfo-title {
+.questionInfo-author-title {
     margin-top: 2em;
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 2em;
     font-weight: 700;
+}
+
+.questionInfo-question-list {
+    width: 50%;
+    color: #000;
 }
