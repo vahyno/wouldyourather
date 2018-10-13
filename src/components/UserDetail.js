@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-// import pic from '../styles/usersImg/'
 
 class UserDetail extends Component {
 

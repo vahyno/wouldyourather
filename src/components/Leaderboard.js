@@ -6,9 +6,6 @@ import '../styles/leaderboard.css';
 class Leaderboard extends Component {
 
     render(){
-        // const {users} = this.props
-
-        // console.log('users to map', users)
         return (
             <div>
                 <h5 className='leaderboard-title'>Leaderboard:</h5>

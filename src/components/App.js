@@ -19,7 +19,6 @@ class App extends Component {
   }
   render() {
     const { loading } = this.props;
-    // console.log('props loading',loading);
 
     return (
       <Router>

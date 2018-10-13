@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import {handleAddNewUser} from '../actions/users';
 import '../styles/signUp.css';
 
-const defaultAvatarImg = 'https://icon2.kisspng.com/20180420/stq/kisspng-computer-icons-user-profile-login-avatar-description-5ada41a37ecc31.1344108915242530915194.jpg';
+const defaultAvatarImg = 'https://icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png';
 
 class Signup extends Component {
 
@@ -28,8 +28,6 @@ class Signup extends Component {
         this.setState({
             [inputFieldName]: e.target.value
         })
-        // console.log(this.state.username);
-        // console.log(this.state.name);
     }
 
 
@@ -41,7 +39,6 @@ class Signup extends Component {
                 avatarURL: e.target.value
             })
         }
-        // console.log('avatar',this.state.avatarURL);
     }
 
 

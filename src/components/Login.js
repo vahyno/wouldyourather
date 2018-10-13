@@ -6,8 +6,6 @@ import {Link, Redirect} from 'react-router-dom';
 
 
 class Login extends Component {
-    //todo: state, form, figure out login and redirect if user islogged to main.
-    //connect to store.
 
     state = {
         username: '',
@@ -18,8 +16,6 @@ class Login extends Component {
         e.preventDefault();
         const { username } = this.state;
         const { dispatch } = this.props;
-        // console.log('button - username', username);
-        // console.log(this.state.logged);
 
         if (username !=='') {
             dispatch(userLogin(username));
@@ -27,7 +23,6 @@ class Login extends Component {
                 logged: true
             });
         }
-        console.log(this.state.logged)
     }
 
     handleInputChange = (e) => {
@@ -39,8 +34,6 @@ class Login extends Component {
 
     render() {
         const {users, authedUser} = this.props;
-        console.log('props users:', users);
-        console.log('authedUser:', authedUser);
         const { logged } = this.state;
         const { from } = this.props.location.state || { from: { pathname: '/' }};
 

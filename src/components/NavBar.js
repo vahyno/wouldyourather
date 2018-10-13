@@ -12,7 +12,6 @@ class NavBar extends Component {
 
     render(){
         const {authedUser, users} = this.props;
-        console.log('authedUser:', authedUser, 'users:', users);
         return (
             <nav>
                 <div className="nav-wrapper blue lighten-2">

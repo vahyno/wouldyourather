@@ -21,7 +21,6 @@ class Dashboard extends Component {
     render() {
         const {active} = this.state
         const {answeredQsSorted, unAnsweredQsSorted} = this.props;
-        // console.log('answeredQ', answeredQsSorted, 'unAnsweredQ', unAnsweredQsSorted);
         return (
             <div>
                 <nav>
@@ -85,32 +84,3 @@ function mapStateToProps({questions, authedUser}) {
 }
 
 export default connect(mapStateToProps)(Dashboard);
-
-
-/*
-The answered and unanswered polls are both available at the root.
-The user can alternate between viewing answered and unanswered polls.
-The unanswered questions are shown by default.
-The name of the logged in user is visible on the page.
-The user can navigate to the leaderboard.
-The user can navigate to the form that allows the user to create a new poll.
-
-Each polling question resides in the correct category. For example, if a question hasn’t been answered by the current user, it should be in the “Unanswered” category.
-A polling question links to details of that poll.
-The polls in both categories are arranged from the most recently created (top) to the least recently created (bottom).
-
-questions = {
-    "8xf0y6ziyjabvozdd253nd": {
-      id: '8xf0y6ziyjabvozdd253nd',
-      author: 'sarahedo',
-      timestamp: 1467166872634,
-      optionOne: {
-        votes: ['sarahedo'],
-        text: 'have horrible short term memory',
-      },
-      optionTwo: {
-        votes: [],
-        text: 'have horrible long term memory'
-      }
-*/
-
