@@ -9,6 +9,7 @@ import {handleInitialData} from './shared';
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
 export const ADD_QUESTION = 'ADD_QUESTION';
+export const QUESTION_ANSWER = 'QUESTION_ANSWER';
 
 export function receiveQuestions (questions) {
     return {
@@ -17,12 +18,22 @@ export function receiveQuestions (questions) {
     }
 }
 
-function addQuestion (question) {
+export function addQuestion (question) {
     return {
         type: ADD_QUESTION,
         question
     }
 }
+
+export function questionsQuestionAnswer (authedUser, qid, optionText) {
+    return {
+        type: QUESTION_ANSWER,
+        authedUser,
+        qid,
+        optionText
+    }
+}
+
 
 export function handleAddQuestion (optionOneText, optionTwoText) {
     return (dispatch, getState) => {
@@ -41,3 +52,4 @@ export function handleAddQuestion (optionOneText, optionTwoText) {
             })
     }
 }
+
