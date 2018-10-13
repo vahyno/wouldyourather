@@ -14,3 +14,18 @@
     width: 50%;
     color: #000;
 }
+
+.questionInfo-voted-list {
+    width: 50%;
+    background-color: #000;
+    line-height: 1.5rem;
+    padding: 10px 20px;
+    margin: 0;
+    border: 1px solid #e0e0e0;
+    font-size: 15px;
+    height: 7em;
+}
+
+.back-btn {
+    width: 100%
+}
