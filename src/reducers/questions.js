@@ -31,20 +31,3 @@ export default function questions (state = {}, action) {
             return state
     }
 }
-
-//authedUser, qid, option
-
-/*let questions = {
-    "8xf0y6ziyjabvozdd253nd": {
-      id: '8xf0y6ziyjabvozdd253nd',
-      author: 'sarahedo',
-      timestamp: 1467166872634,
-      optionOne: {
-        votes: ['sarahedo'],
-        text: 'have horrible short term memory',
-      },
-      optionTwo: {
-        votes: [],
-        text: 'have horrible long term memory'
-      }
-*/

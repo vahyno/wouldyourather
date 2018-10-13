@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {handleAddQuestion} from '../actions/questions';
+import {handleAddQuestion} from '../actions/shared';
 import '../styles/newQuestion.css'
 
 

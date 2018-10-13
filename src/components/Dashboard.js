@@ -37,12 +37,10 @@ class Dashboard extends Component {
                         <ul className='collection with-header'>
                             <li className="center collection-header"><h4>Answered Questions:</h4></li>
                             {answeredQsSorted.map(Q => (
-                                <li className='dash-btn btn-large waves-effect waves-light collection-item' 
+                                <Link to={`/questions/${Q.id}`} className='dash-btn btn-large waves-effect waves-light collection-item' 
                                     key={Q.id}>
-                                    <Link to={`/questions/${Q.id}`}>
                                         {Q.optionOne.text} - or - {Q.optionTwo.text}
-                                    </Link>
-                                </li>
+                                </Link>
                             ))}
                         </ul>
                     </div>
@@ -53,12 +51,10 @@ class Dashboard extends Component {
                         <ul className='collection with-header'>
                             <li className='center collection-header'><h4>Unanswered Questions:</h4></li>
                             {unAnsweredQsSorted.map(Q => (
-                                <li className='dash-btn btn-large waves-effect waves-light collection-item' 
+                                <Link to={`/questions/${Q.id}`} className='dash-btn btn-large waves-effect waves-light collection-item' 
                                     key={Q.id}>
-                                    <Link to={`/questions/${Q.id}`} className=''>
                                         {Q.optionOne.text} - or - {Q.optionTwo.text}
-                                    </Link>
-                                </li>
+                                </Link>
                             ))}
                         </ul>
                     </div>

@@ -1,12 +1,3 @@
-import {
-    saveQuestion,
-} from '../utils/api';
-import {
-    showLoading, 
-    hideLoading} 
-from 'react-redux-loading-bar';
-import {handleInitialData} from './shared';
-
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
 export const ADD_QUESTION = 'ADD_QUESTION';
 export const QUESTION_ANSWER = 'QUESTION_ANSWER';
@@ -35,21 +26,4 @@ export function questionsQuestionAnswer (authedUser, qid, option) {
 }
 
 
-export function handleAddQuestion (optionOneText, optionTwoText) {
-    return (dispatch, getState) => {
-        const {authedUser} = getState();
-        dispatch(showLoading());
-        return saveQuestion({
-            // ({ optionOneText, optionTwoText, author })
-            optionOneText, 
-            optionTwoText, 
-            author: authedUser,
-        })
-            .then((question) => {
-                dispatch(addQuestion(question));
-                dispatch(handleInitialData());
-                dispatch(hideLoading());
-            })
-    }
-}
 
