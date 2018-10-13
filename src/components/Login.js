@@ -33,7 +33,7 @@ class Login extends Component {
     }
 
     render() {
-        const {users, authedUser} = this.props;
+        const { users } = this.props;
         const { logged } = this.state;
         const { from } = this.props.location.state || { from: { pathname: '/' }};
 
