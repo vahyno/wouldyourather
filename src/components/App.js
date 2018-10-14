@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import {handleInitialData} from '../actions/shared';
 import LoadingBar from 'react-redux-loading-bar';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Login from './Login';
 import Signup from './Signup';
@@ -33,7 +33,7 @@ class App extends Component {
               <PrivateRoute path='/leaderboard' component={Leaderboard}/>
               <PrivateRoute path='/add' component={NewQuestion}/>
               <PrivateRoute path='/questions/:question_id' component={QuestionInfo}/>
-              {/*<Route render={()=>(<p className='center-align'>404 page does not exist</p>)} />*/} 
+              {/* <Route render={()=>(<p className='center-align'>404 page does not exist</p>)} /> */}
             </div>}
         </Fragment>
       </Router>
