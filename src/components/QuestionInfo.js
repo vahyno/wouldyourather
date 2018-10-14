@@ -17,8 +17,6 @@ class QuestionInfo extends Component {
 
     render(){
         const {question, authedUser} = this.props;
-        // const votedOne = question.optionOne.votes.includes(authedUser);
-        // const votedTwo = question.optionTwo.votes.includes(authedUser); 
 
         return (
             <div>
