@@ -6,7 +6,6 @@ import {userLogout} from '../actions/authedUser';
 class NavBar extends Component {
 
     signOut = (e) => {
-        e.preventDefault();
         this.props.dispatch(userLogout());
     }
 
@@ -20,11 +19,12 @@ class NavBar extends Component {
                     <li><Link to={'/'}>Dashboard</Link></li>
                     <li><Link to={'/leaderboard'}>Leaderboard</Link></li>
                     <li><Link to={'/add'}>New Question</Link></li>
-                    <li><a  href='backToLogin'
+                    <li><Link  to='/'
                             style={{'marginRight':'2em'}}
                             onClick={this.signOut}>
                             Sign Out
-                        </a></li>
+                        </Link>
+                    </li>
                 </ul>
                 </div>
             </nav>

@@ -17,8 +17,8 @@ class QuestionInfo extends Component {
 
     render(){
         const {question, authedUser} = this.props;
-        const votedOne = question.optionOne.votes.includes(authedUser);
-        const votedTwo = question.optionTwo.votes.includes(authedUser);
+        // const votedOne = question.optionOne.votes.includes(authedUser);
+        // const votedTwo = question.optionTwo.votes.includes(authedUser); 
 
         return (
             <div>
@@ -49,7 +49,7 @@ class QuestionInfo extends Component {
                                 : (
                                     <ul className='collection'>
                                         <li className='left questionInfo-voted-list collection-item'
-                                            style={{'backgroundColor': votedOne? '#e57373':''}}>
+                                            style={{'backgroundColor': question.optionOne.votes.includes(authedUser)? '#e57373':''}}>
                                             <h6>{question.optionOne.text}</h6>
                                             <h6>
                                                 {question.optionOne.votes.length 
@@ -63,7 +63,7 @@ class QuestionInfo extends Component {
                                             </h6>
                                         </li>
                                         <li className='right questionInfo-voted-list collection-item'
-                                            style={{'backgroundColor': votedTwo? '#448aff':''}}>
+                                            style={{'backgroundColor': question.optionTwo.votes.includes(authedUser)? '#448aff':''}}>
                                             <h6>{question.optionTwo.text}</h6>
                                             <h6>
                                                 {question.optionTwo.votes.length
